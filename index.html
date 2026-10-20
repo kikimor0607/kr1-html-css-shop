@@ -9,6 +9,8 @@
   <script src="js/main.js" defer></script>
 </head>
 <body id="top">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="site-header__logo" href="index.html">
@@ -18,13 +20,15 @@
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="index.html" aria-current="page">Главная</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="delivery.html">Доставка и оплата</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
         </ul>
       </nav>
+      <a class="button site-header__cta" href="order.html">Оформить заявку</a>
     </div>
   </header>
 
-  <main class="container">
+  <main class="container" id="main">
     <section class="hero">
       <div class="hero__content">
         <p class="hero__eyebrow">Обжарочная specialty-кофе</p>
@@ -34,7 +38,8 @@
           его в течение двух дней после обжарки.
         </p>
         <div class="hero__actions">
-          <a class="button" href="catalog.html">Перейти в каталог</a>
+          <a class="button button--large" href="catalog.html">Перейти в каталог</a>
+          <a class="button button--secondary button--large" href="order.html">Оформить заявку</a>
         </div>
       </div>
       <img class="hero__image" src="images/hero.svg" alt="" width="480" height="360">
@@ -43,6 +48,7 @@
     <nav class="page-anchors" aria-label="Разделы главной страницы">
       <a class="page-anchors__link" href="#advantages">Преимущества</a>
       <a class="page-anchors__link" href="#popular">Популярные сорта</a>
+      <a class="page-anchors__link" href="#reviews">Отзывы</a>
       <a class="page-anchors__link" href="#contacts">Контакты</a>
     </nav>
 
@@ -68,57 +74,91 @@
             <h3 class="advantages__title">Помол бесплатно</h3>
             <p class="advantages__text">Смелем под турку, фильтр, гейзер или эспрессо.</p>
           </li>
+
+          <li class="advantages__item">
+            <span class="advantages__icon" aria-hidden="true">🚚</span>
+            <h3 class="advantages__title">Доставка от 1 дня</h3>
+            <p class="advantages__text">Курьером по Москве и СДЭК по всей России.</p>
+          </li>
           </ul>
         </section>
 
         <section class="popular" id="popular">
           <h2 class="section-title">Популярные сорта</h2>
           <div class="product-grid">
-            <article class="product-card">
+            <article class="product-card product-card--hit">
+              <span class="product-card__badge">Хит</span>
               <img class="product-card__image" src="images/products/ethiopia.svg" alt="Эфиопия Иргачеффе" width="400" height="300" loading="lazy">
               <div class="product-card__body">
-                <p class="product-card__category">Моносорт</p>
+                <p class="product-card__category">Моносорт · Под фильтр</p>
                 <h3 class="product-card__title">Эфиопия Иргачеффе</h3>
                 <p class="product-card__description">Цветочный аромат, ноты бергамота и персика.</p>
                 <p class="product-card__price">890 ₽ <span class="product-card__unit">/ 250 г</span></p>
-                <button class="button product-card__button" type="button" data-product="Эфиопия Иргачеффе">Заказать</button>
+                <div class="product-card__actions">
+                  <a class="button button--secondary" href="product.html">Подробнее</a>
+                  <button class="button product-card__button" type="button" data-product="Эфиопия Иргачеффе">Заказать</button>
+                </div>
               </div>
             </article>
 
-            <article class="product-card">
-              <img class="product-card__image" src="images/products/colombia.svg" alt="Колумбия Супремо" width="400" height="300" loading="lazy">
-              <div class="product-card__body">
-                <p class="product-card__category">Моносорт</p>
-                <h3 class="product-card__title">Колумбия Супремо</h3>
-                <p class="product-card__description">Сбалансированный вкус с нотами карамели и ореха.</p>
-                <p class="product-card__price">760 ₽ <span class="product-card__unit">/ 250 г</span></p>
-                <button class="button product-card__button" type="button" data-product="Колумбия Супремо">Заказать</button>
-              </div>
-            </article>
-
-            <article class="product-card">
+            <article class="product-card product-card--hit">
+              <span class="product-card__badge">Хит</span>
               <img class="product-card__image" src="images/products/utro.svg" alt="Эспрессо-смесь «Утро»" width="400" height="300" loading="lazy">
               <div class="product-card__body">
-                <p class="product-card__category">Смесь</p>
+                <p class="product-card__category">Смесь · Под эспрессо</p>
                 <h3 class="product-card__title">Эспрессо-смесь «Утро»</h3>
                 <p class="product-card__description">Плотное тело, шоколад и сухофрукты.</p>
                 <p class="product-card__price">690 ₽ <span class="product-card__unit">/ 250 г</span></p>
-                <button class="button product-card__button" type="button" data-product="Эспрессо-смесь «Утро»">Заказать</button>
+                <div class="product-card__actions">
+                  <a class="button button--secondary" href="product.html">Подробнее</a>
+                  <button class="button product-card__button" type="button" data-product="Эспрессо-смесь «Утро»">Заказать</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card product-card--discount">
+              <span class="product-card__badge">−16%</span>
+              <img class="product-card__image" src="images/products/brazil.svg" alt="Бразилия Сантос" width="400" height="300" loading="lazy">
+              <div class="product-card__body">
+                <p class="product-card__category">Смесь · Под эспрессо</p>
+                <h3 class="product-card__title">Бразилия Сантос</h3>
+                <p class="product-card__description">Мягкий вкус, какао и жареный орех.</p>
+                <p class="product-card__price"><s class="product-card__price-old">620 ₽</s> 520 ₽ <span class="product-card__unit">/ 250 г</span></p>
+                <div class="product-card__actions">
+                  <a class="button button--secondary" href="product.html">Подробнее</a>
+                  <button class="button product-card__button" type="button" data-product="Бразилия Сантос">Заказать</button>
+                </div>
               </div>
             </article>
           </div>
           <a class="popular__more" href="catalog.html">Смотреть весь каталог →</a>
+        </section>
+
+        <section class="reviews" id="reviews">
+          <h2 class="section-title">Отзывы покупателей</h2>
+          <div class="reviews__list">
+            <blockquote class="review">
+              <p class="review__text">«Иргачеффе — лучший кофе для V60, что я пробовала. Пришёл через день после обжарки.»</p>
+              <footer class="review__author">Анна, Москва <span class="review__rating" aria-label="Оценка 5 из 5">★★★★★</span></footer>
+            </blockquote>
+            <blockquote class="review">
+              <p class="review__text">«Беру смесь „Утро“ для кофемашины уже полгода. Стабильно вкусно, без горечи.»</p>
+              <footer class="review__author">Игорь, Казань <span class="review__rating" aria-label="Оценка 5 из 5">★★★★★</span></footer>
+            </blockquote>
+            <blockquote class="review">
+              <p class="review__text">«Помогли подобрать помол под турку, ответили в чате за пару минут.»</p>
+              <footer class="review__author">Мария, Тверь <span class="review__rating" aria-label="Оценка 4 из 5">★★★★☆</span></footer>
+            </blockquote>
+          </div>
         </section>
       </div>
 
       <aside class="promo page-layout__aside">
         <h2 class="promo__title">Скидка на первый заказ</h2>
         <p class="promo__text">Промокод <strong class="promo__code">FIRST10</strong> даёт 10% на первую покупку.</p>
+        <p class="promo__text">Действует на заказы от 1&nbsp;500&nbsp;₽.</p>
+        <a class="button button--small" href="order.html">Оформить заявку</a>
       </aside>
-    </div>
-
-    <div class="notice notice--success" id="success-message" role="status" hidden>
-      Форма успешно отправлена! Мы свяжемся с вами в ближайшее время.
     </div>
   </main>
 
@@ -131,14 +171,18 @@
       <nav class="site-footer__column" aria-label="Каталог">
         <h2 class="site-footer__title">Каталог</h2>
         <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="catalog.html">Все товары</a></li>
+            <li><a class="site-footer__link" href="catalog.html#mono">Моносорта</a></li>
+            <li><a class="site-footer__link" href="catalog.html#blends">Эспрессо-смеси</a></li>
+            <li><a class="site-footer__link" href="catalog.html#accessories">Аксессуары</a></li>
         </ul>
       </nav>
       <nav class="site-footer__column" aria-label="Покупателям">
         <h2 class="site-footer__title">Покупателям</h2>
         <ul class="site-footer__list">
             <li><a class="site-footer__link" href="index.html#advantages">Преимущества</a></li>
-            <li><a class="site-footer__link" href="index.html#popular">Популярные сорта</a></li>
+            <li><a class="site-footer__link" href="delivery.html#tariffs">Тарифы доставки</a></li>
+            <li><a class="site-footer__link" href="delivery.html#faq">Вопросы и ответы</a></li>
+            <li><a class="site-footer__link" href="order.html">Оформить заявку</a></li>
         </ul>
       </nav>
       <section class="site-footer__column">
@@ -156,26 +200,31 @@
     </div>
   </footer>
 
+  <a class="to-top" href="#top" aria-label="Наверх">↑</a>
+
   <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+    <button class="order-dialog__close" type="button" data-dialog-close aria-label="Закрыть окно">×</button>
     <h2 class="order-dialog__title" id="order-dialog-title">Быстрая заявка</h2>
 
     <form class="order-form" id="order-form" action="#" method="post" novalidate>
       <input id="selected-product" name="selected-product" type="hidden">
 
+      <p class="order-dialog__product">Товар: <strong id="selected-product-label">не выбран</strong></p>
+
       <div class="order-form__field">
-        <label class="order-form__label" for="dialog-name">Имя</label>
+        <label class="order-form__label" for="dialog-name">Имя <span class="order-form__required" aria-hidden="true">*</span></label>
         <input class="order-form__input" id="dialog-name" name="name" type="text" placeholder="Введите ваше имя"
           minlength="2" autocomplete="given-name" required>
       </div>
 
       <div class="order-form__field">
-        <label class="order-form__label" for="dialog-email">E-mail</label>
+        <label class="order-form__label" for="dialog-email">E-mail <span class="order-form__required" aria-hidden="true">*</span></label>
         <input class="order-form__input" id="dialog-email" name="email" type="email" placeholder="name@example.com"
           autocomplete="email" required>
       </div>
 
       <div class="order-form__field">
-        <label class="order-form__label" for="dialog-phone">Телефон</label>
+        <label class="order-form__label" for="dialog-phone">Телефон <span class="order-form__required" aria-hidden="true">*</span></label>
         <input class="order-form__input" id="dialog-phone" name="phone" type="tel" placeholder="+7 999 123-45-67"
           pattern="^\+?[0-9\s\-\(\)]{10,18}$" autocomplete="tel" aria-describedby="dialog-phone-hint" required>
         <small class="order-form__hint" id="dialog-phone-hint">Формат: +7 999 123-45-67</small>
@@ -210,8 +259,12 @@
 
       <div class="order-form__actions">
         <button class="button" type="submit">Отправить</button>
-        <button class="button button--secondary" id="close-order-dialog" type="button">Закрыть</button>
+        <button class="button button--secondary" type="button" data-dialog-close>Отмена</button>
       </div>
+
+      <p class="order-form__success" role="status" hidden>
+        Спасибо! Заявка отправлена — мы свяжемся с вами в течение рабочего дня.
+      </p>
     </form>
   </dialog>
 </body>

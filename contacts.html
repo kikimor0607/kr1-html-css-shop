@@ -6,8 +6,11 @@
   <title>Контакты — Зерно</title>
   <meta name="description" content="Адрес обжарочной «Зерно», телефон, e-mail, часы работы и форма обратной связи.">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
 </head>
 <body id="top">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="site-header__logo" href="index.html">
@@ -17,13 +20,15 @@
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="delivery.html">Доставка и оплата</a></li>
           <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="contacts.html" aria-current="page">Контакты</a></li>
         </ul>
       </nav>
+      <a class="button site-header__cta" href="order.html">Оформить заявку</a>
     </div>
   </header>
 
-  <main class="container">
+  <main class="container" id="main">
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
       <ol class="breadcrumbs__list">
         <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="index.html">Главная</a></li>
@@ -64,10 +69,58 @@
 
     <section class="contacts__feedback" id="feedback">
       <h2 class="section-title">Обратная связь</h2>
-      <p class="page-note">
-        Вопросы по заказу можно задать по телефону или e-mail.
-        Посмотреть сорта можно в <a href="catalog.html">каталоге</a>.
-      </p>
+      <p class="page-note">Ответим на e-mail в течение рабочего дня. Чтобы заказать кофе, удобнее <a href="order.html">оформить заявку</a>.</p>
+      <form class="order-form order-form--card" action="#" method="post" novalidate>
+        <div class="order-form__field">
+          <label class="order-form__label" for="feedback-name">Имя <span class="order-form__required" aria-hidden="true">*</span></label>
+          <input class="order-form__input" id="feedback-name" name="name" type="text" placeholder="Введите ваше имя"
+            minlength="2" autocomplete="given-name" required>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="feedback-email">E-mail <span class="order-form__required" aria-hidden="true">*</span></label>
+          <input class="order-form__input" id="feedback-email" name="email" type="email" placeholder="name@example.com"
+            autocomplete="email" required>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="feedback-phone">Телефон <span class="order-form__required" aria-hidden="true">*</span></label>
+          <input class="order-form__input" id="feedback-phone" name="phone" type="tel" placeholder="+7 999 123-45-67"
+            pattern="^\+?[0-9\s\-\(\)]{10,18}$" autocomplete="tel" aria-describedby="feedback-phone-hint" required>
+          <small class="order-form__hint" id="feedback-phone-hint">Формат: +7 999 123-45-67</small>
+        </div>
+
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="feedback-topic">Тема заявки</label>
+          <select class="order-form__input" id="feedback-topic" name="topic" required>
+            <option value="">Выберите тему</option>
+            <option value="order">Заказ кофе</option>
+            <option value="subscription">Подписка на кофе</option>
+            <option value="wholesale">Оптовая закупка</option>
+            <option value="question">Вопрос о товаре</option>
+          </select>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="feedback-comment">Комментарий</label>
+          <textarea class="order-form__input order-form__input--textarea" id="feedback-comment" name="comment" rows="4"
+            maxlength="500" placeholder="Например: позвоните перед доставкой"></textarea>
+        </div>
+
+        <div class="order-form__field order-form__field--checkbox">
+          <input class="order-form__checkbox" id="feedback-agree" name="agree" type="checkbox" required>
+          <label class="order-form__label" for="feedback-agree">Я согласен на обработку персональных данных</label>
+        </div>
+
+        <div class="order-form__actions">
+          <button class="button" type="submit">Отправить сообщение</button>
+        </div>
+
+        <p class="order-form__success" role="status" hidden>
+          Спасибо! Заявка отправлена — мы свяжемся с вами в течение рабочего дня.
+        </p>
+      </form>
     </section>
   </main>
 
@@ -80,14 +133,18 @@
       <nav class="site-footer__column" aria-label="Каталог">
         <h2 class="site-footer__title">Каталог</h2>
         <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="catalog.html">Все товары</a></li>
+            <li><a class="site-footer__link" href="catalog.html#mono">Моносорта</a></li>
+            <li><a class="site-footer__link" href="catalog.html#blends">Эспрессо-смеси</a></li>
+            <li><a class="site-footer__link" href="catalog.html#accessories">Аксессуары</a></li>
         </ul>
       </nav>
       <nav class="site-footer__column" aria-label="Покупателям">
         <h2 class="site-footer__title">Покупателям</h2>
         <ul class="site-footer__list">
             <li><a class="site-footer__link" href="index.html#advantages">Преимущества</a></li>
-            <li><a class="site-footer__link" href="index.html#popular">Популярные сорта</a></li>
+            <li><a class="site-footer__link" href="delivery.html#tariffs">Тарифы доставки</a></li>
+            <li><a class="site-footer__link" href="delivery.html#faq">Вопросы и ответы</a></li>
+            <li><a class="site-footer__link" href="order.html">Оформить заявку</a></li>
         </ul>
       </nav>
       <section class="site-footer__column">
@@ -104,5 +161,7 @@
       <a class="site-footer__link" href="#top">Наверх ↑</a>
     </div>
   </footer>
+
+  <a class="to-top" href="#top" aria-label="Наверх">↑</a>
 </body>
 </html>

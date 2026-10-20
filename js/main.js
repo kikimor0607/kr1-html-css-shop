@@ -1,48 +1,68 @@
-// Минимальная логика модального окна заявки.
-// КР №1 оценивается как HTML/CSS-проект, JavaScript нужен только
-// для открытия/закрытия <dialog> и базовой обработки формы.
+// Минимальная логика для КР №1: открытие/закрытие модального окна <dialog>
+// и базовая обработка отправки форм. Вся вёрстка и оформление — на HTML/CSS.
 
 const orderDialog = document.getElementById('order-dialog');
-const orderButtons = document.querySelectorAll('.product-card__button');
-const closeDialogButton = document.getElementById('close-order-dialog');
-const selectedProductInput = document.getElementById('selected-product');
-const orderForm = document.getElementById('order-form');
-const successMessage = document.getElementById('success-message');
 
-orderButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    selectedProductInput.value = button.dataset.product;
-    orderDialog.showModal();
+// ---------- Модальное окно заявки ----------
+if (orderDialog) {
+  const selectedProductInput = document.getElementById('selected-product');
+  const selectedProductLabel = document.getElementById('selected-product-label');
+  const dialogSuccess = orderDialog.querySelector('.order-form__success');
+
+  // Любая кнопка с data-product открывает окно и подставляет товар.
+  document.querySelectorAll('[data-product]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const productName = button.dataset.product;
+      selectedProductInput.value = productName;
+      selectedProductLabel.textContent = productName;
+      dialogSuccess.hidden = true;
+      orderDialog.showModal();
+    });
   });
-});
 
-closeDialogButton.addEventListener('click', () => {
-  orderDialog.close();
-});
+  // Кнопки «×» и «Отмена».
+  orderDialog.querySelectorAll('[data-dialog-close]').forEach((button) => {
+    button.addEventListener('click', () => orderDialog.close());
+  });
 
-orderForm.addEventListener('submit', (event) => {
-  // Backend пока не подключён — отменяем стандартную отправку.
-  event.preventDefault();
+  // Закрытие по клику на затемнённый фон.
+  orderDialog.addEventListener('click', (event) => {
+    if (event.target === orderDialog) {
+      orderDialog.close();
+    }
+  });
+}
 
-  const formElements = Array.from(orderForm.elements);
+// ---------- Формы заявки и обратной связи ----------
+document.querySelectorAll('.order-form').forEach((form) => {
+  const successMessage = form.querySelector('.order-form__success');
 
-  formElements.forEach((element) => {
-    if (element.willValidate) {
-      element.removeAttribute('aria-invalid');
+  form.addEventListener('submit', (event) => {
+    // Backend пока не подключён — отменяем стандартную отправку.
+    event.preventDefault();
+
+    const fields = Array.from(form.elements).filter((element) => element.willValidate);
+    fields.forEach((field) => field.removeAttribute('aria-invalid'));
+
+    if (!form.checkValidity()) {
+      fields
+        .filter((field) => !field.checkValidity())
+        .forEach((field) => field.setAttribute('aria-invalid', 'true'));
+      form.reportValidity();
+      return;
+    }
+
+    form.reset();
+    if (successMessage) {
+      successMessage.hidden = false;
     }
   });
 
-  if (!orderForm.checkValidity()) {
-    formElements.forEach((element) => {
-      if (element.willValidate && !element.checkValidity()) {
-        element.setAttribute('aria-invalid', 'true');
-      }
-    });
-    orderForm.reportValidity();
-    return;
-  }
-
-  successMessage.hidden = false;
-  orderForm.reset();
-  orderDialog.close();
+  // При повторном вводе скрываем старое сообщение и подсветку ошибки.
+  form.addEventListener('input', (event) => {
+    event.target.removeAttribute('aria-invalid');
+    if (successMessage) {
+      successMessage.hidden = true;
+    }
+  });
 });
