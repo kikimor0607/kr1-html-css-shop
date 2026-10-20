@@ -332,3 +332,38 @@ section h2 {
   background-color: var(--color-dark);
   color: var(--color-border);
 }
+
+/* ===============================
+   9. Многостраничная навигация
+   =============================== */
+.menu a[aria-current="page"] {
+  color: var(--color-accent);
+  font-weight: bold;
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.page-anchors {
+  margin-bottom: var(--space-lg);
+}
+
+.page-anchors a {
+  margin-right: var(--space-md);
+}
+
+.breadcrumbs {
+  margin: var(--space-lg) 0 var(--space-md);
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+main h1 {
+  margin-bottom: var(--space-lg);
+}
+
+.footer a {
+  color: var(--color-accent);
+}
+
+.footer a:hover {
+  color: var(--color-surface);
+}

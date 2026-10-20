@@ -4,19 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Зерно — кофе свежей обжарки</title>
+  <meta name="description" content="Интернет-магазин кофе свежей обжарки «Зерно»: specialty-зерно, эспрессо-смеси и доставка по России.">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
 </head>
-<body>
+<body id="top">
   <header class="header">
     <div class="container header-inner">
       <a class="logo" href="index.html">Зерно</a>
       <nav class="nav" aria-label="Основная навигация">
         <ul class="menu">
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="#advantages">Преимущества</a></li>
-          <li><a href="#popular">Популярное</a></li>
-          <li><a href="#contacts">Контакты</a></li>
+          <li><a href="index.html" aria-current="page">Главная</a></li>
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
         </ul>
       </nav>
     </div>
@@ -29,8 +29,14 @@
         Обжариваем зерно небольшими партиями каждую неделю и отправляем
         его в течение двух дней после обжарки.
       </p>
-      <a class="button" href="#popular">Смотреть популярное</a>
+      <a class="button" href="catalog.html">Перейти в каталог</a>
     </section>
+
+    <nav class="page-anchors" aria-label="Разделы главной страницы">
+      <a href="#advantages">Преимущества</a>
+      <a href="#popular">Популярные сорта</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
 
     <div class="content">
       <div>
@@ -89,6 +95,11 @@
   <footer id="contacts" class="footer">
     <div class="container">
       <p>Москва, ул. Обжарочная, 7 · +7 (495) 000-00-00 · hello@zerno.example</p>
+      <p>
+        <a href="catalog.html">Каталог</a> ·
+        <a href="contacts.html">Контакты</a> ·
+        <a href="#top">Наверх</a>
+      </p>
       <p>&copy; 2026 Зерно. Учебный проект</p>
     </div>
   </footer>
