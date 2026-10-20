@@ -3,36 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Каталог товаров</title>
+  <title>Зерно — кофе свежей обжарки</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <h1>Учебный интернет-магазин</h1>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Зерно</a>
+      <nav class="nav" aria-label="Основная навигация">
+        <ul class="menu">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="#advantages">Преимущества</a></li>
+          <li><a href="#popular">Популярное</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section>
-      <h2>Главная страница проекта</h2>
+  <main class="container">
+    <section class="hero">
+      <h1>Кофе свежей обжарки с доставкой</h1>
       <p>
-        Это стартовая страница учебного frontend-проекта.
-        В дальнейшем здесь будет разработан многостраничный сайт
-        интернет-магазина или каталога услуг.
+        Обжариваем зерно небольшими партиями каждую неделю и отправляем
+        его в течение двух дней после обжарки.
       </p>
+      <a class="button" href="#popular">Смотреть популярное</a>
     </section>
 
-    <section>
-      <h2>О проекте</h2>
-      <p>
-        В рамках данного проекта будет разработан многостраничный сайт
-        интернет-магазина или каталога услуг. Проект будет постепенно
-        расширяться на следующих практических занятиях.
-      </p>
-    </section>
+    <div class="content">
+      <div>
+        <section id="advantages" class="advantages">
+          <h2>Почему выбирают нас</h2>
+          <ul>
+            <li>Обжарка не раньше чем за 7 дней до отправки.</li>
+            <li>Только specialty-зерно с оценкой от 80 баллов SCA.</li>
+            <li>Помол под ваш способ заваривания бесплатно.</li>
+          </ul>
+        </section>
+
+        <section id="popular" class="popular">
+          <h2>Популярные сорта</h2>
+
+          <article class="product">
+            <h3>Эфиопия Иргачеффе</h3>
+            <p>Цветочный аромат, ноты бергамота и персика.</p>
+            <p>Цена: 890 руб. / 250 г</p>
+          </article>
+
+          <article class="product">
+            <h3>Колумбия Супремо</h3>
+            <p>Сбалансированный вкус с нотами карамели и ореха.</p>
+            <p>Цена: 760 руб. / 250 г</p>
+          </article>
+
+          <article class="product">
+            <h3>Эспрессо-смесь «Утро»</h3>
+            <p>Плотное тело, шоколад и сухофрукты. Для эспрессо и молочных напитков.</p>
+            <p>Цена: 690 руб. / 250 г</p>
+          </article>
+        </section>
+      </div>
+
+      <aside class="sidebar">
+        <h2>Скидка на первый заказ</h2>
+        <p>Промокод <strong>FIRST10</strong> даёт 10% на первую покупку.</p>
+      </aside>
+    </div>
   </main>
 
-  <footer>
-    <p>&copy; 2026 Учебный проект</p>
+  <footer id="contacts" class="footer">
+    <div class="container">
+      <p>Москва, ул. Обжарочная, 7 · +7 (495) 000-00-00 · hello@zerno.example</p>
+      <p>&copy; 2026 Зерно. Учебный проект</p>
+    </div>
   </footer>
 </body>
 </html>

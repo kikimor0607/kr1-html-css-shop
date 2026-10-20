@@ -1,27 +1,135 @@
-body {
+/* Минимальный сброс стилей */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ul {
   margin: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Базовые стили страницы */
+body {
   font-family: Arial, sans-serif;
   line-height: 1.5;
+  color: #2b1d14;
+  background-color: #fbf7f2;
 }
 
-header,
-main,
-footer {
-  padding: 20px;
+a {
+  color: #8a4b20;
 }
 
-header {
-  background-color: #f2f2f2;
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-footer {
-  background-color: #f2f2f2;
+/* Шапка */
+.header {
+  background-color: #2b1d14;
+  color: #ffffff;
+  padding: 16px 0;
 }
 
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  display: inline-block;
+  margin-left: 16px;
+}
+
+.menu a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Hero-блок */
+.hero {
+  margin: 24px 0;
+  padding: 40px 24px;
+  background-color: #f1e3d3;
+  border-radius: 8px;
+}
+
+.hero h1 {
+  margin-bottom: 12px;
+}
+
+.hero p {
+  margin-bottom: 20px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: #8a4b20;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Контент и боковая колонка */
 section {
   margin-bottom: 24px;
 }
 
 section h2 {
-  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.advantages ul {
+  padding-left: 20px;
+}
+
+.product {
+  margin-bottom: 12px;
+  padding: 16px;
+  background-color: #ffffff;
+  border: 1px solid #e3d5c6;
+  border-radius: 8px;
+}
+
+.sidebar {
+  margin-bottom: 24px;
+  padding: 16px;
+  background-color: #ffffff;
+  border-left: 4px solid #8a4b20;
+}
+
+/* Подвал */
+.footer {
+  padding: 20px 0;
+  background-color: #2b1d14;
+  color: #e3d5c6;
 }
