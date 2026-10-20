@@ -318,6 +318,14 @@ button:disabled,
   color: var(--color-text-muted);
 }
 
+.hero__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
@@ -1004,11 +1012,13 @@ button:disabled,
 }
 
 .catalog-filters__input {
-  width: 90px;
+  width: 100%;
+  min-width: 0;
 }
 
 .catalog-filters__range {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: var(--space-sm);
 }
 
@@ -1144,6 +1154,8 @@ button:disabled,
 
 .product-detail__image {
   width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
 }
 
 .product-detail__badge {
