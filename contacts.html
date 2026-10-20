@@ -8,14 +8,16 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body id="top">
-  <header class="header">
-    <div class="container header-inner">
-      <a class="logo" href="index.html">Зерно</a>
-      <nav class="nav" aria-label="Основная навигация">
-        <ul class="menu">
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="catalog.html">Каталог</a></li>
-          <li><a href="contacts.html" aria-current="page">Контакты</a></li>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-header__logo" href="index.html">
+        <span class="site-header__logo-mark" aria-hidden="true">●</span> Зерно
+      </a>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="contacts.html" aria-current="page">Контакты</a></li>
         </ul>
       </nav>
     </div>
@@ -23,39 +25,83 @@
 
   <main class="container">
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
-      <a href="index.html">Главная</a> / <span aria-current="page">Контакты</span>
+      <ol class="breadcrumbs__list">
+        <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="index.html">Главная</a></li>
+        <li class="breadcrumbs__item" aria-current="page">Контакты</li>
+      </ol>
     </nav>
 
-    <h1>Контакты</h1>
+    <h1 class="page-title">Контакты</h1>
 
-    <section id="address">
-      <h2>Обжарочная и шоурум</h2>
-      <address>
-        Москва, ул. Обжарочная, 7<br>
-        Телефон: <a href="tel:+74950000000">+7 (495) 000-00-00</a><br>
-        E-mail: <a href="mailto:hello@zerno.example">hello@zerno.example</a>
-      </address>
-      <p>Часы работы: ежедневно с 9:00 до 21:00.</p>
-    </section>
+    <div class="contacts">
+      <section class="contacts__info" id="address">
+        <h2 class="section-title">Обжарочная и шоурум</h2>
+        <ul class="contacts__list">
+          <li class="contact-item">
+            <h3 class="contact-item__title">Адрес</h3>
+            <p class="contact-item__text">Москва, ул. Обжарочная, 7 (м. Таганская)</p>
+          </li>
+          <li class="contact-item">
+            <h3 class="contact-item__title">Телефон</h3>
+            <p class="contact-item__text"><a href="tel:+74950000000">+7 (495) 000-00-00</a></p>
+          </li>
+          <li class="contact-item">
+            <h3 class="contact-item__title">E-mail</h3>
+            <p class="contact-item__text"><a href="mailto:hello@zerno.example">hello@zerno.example</a></p>
+          </li>
+          <li class="contact-item">
+            <h3 class="contact-item__title">Часы работы</h3>
+            <p class="contact-item__text">Ежедневно с 9:00 до 21:00</p>
+          </li>
+        </ul>
+      </section>
 
-    <section id="feedback">
-      <h2>Обратная связь</h2>
-      <p>
+      <div class="contacts__map" role="img" aria-label="Схема проезда: шоурум находится в 5 минутах от метро Таганская">
+        <span class="contacts__pin" aria-hidden="true">●</span>
+        <p class="contacts__map-text">ул. Обжарочная, 7</p>
+      </div>
+    </div>
+
+    <section class="contacts__feedback" id="feedback">
+      <h2 class="section-title">Обратная связь</h2>
+      <p class="page-note">
         Вопросы по заказу можно задать по телефону или e-mail.
         Посмотреть сорта можно в <a href="catalog.html">каталоге</a>.
       </p>
     </section>
   </main>
 
-  <footer id="contacts" class="footer">
-    <div class="container">
-      <p>Москва, ул. Обжарочная, 7 · +7 (495) 000-00-00 · hello@zerno.example</p>
-      <p>
-        <a href="index.html#advantages">Преимущества</a> ·
-        <a href="catalog.html">Каталог</a> ·
-        <a href="#top">Наверх</a>
-      </p>
-      <p>&copy; 2026 Зерно. Учебный проект</p>
+  <footer class="site-footer" id="contacts">
+    <div class="container site-footer__inner">
+      <section class="site-footer__column">
+        <h2 class="site-footer__title">Зерно</h2>
+        <p class="site-footer__text">Обжариваем specialty-кофе небольшими партиями с 2019 года.</p>
+      </section>
+      <nav class="site-footer__column" aria-label="Каталог">
+        <h2 class="site-footer__title">Каталог</h2>
+        <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="catalog.html">Все товары</a></li>
+        </ul>
+      </nav>
+      <nav class="site-footer__column" aria-label="Покупателям">
+        <h2 class="site-footer__title">Покупателям</h2>
+        <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="index.html#advantages">Преимущества</a></li>
+            <li><a class="site-footer__link" href="index.html#popular">Популярные сорта</a></li>
+        </ul>
+      </nav>
+      <section class="site-footer__column">
+        <h2 class="site-footer__title">Контакты</h2>
+        <address class="site-footer__address">
+          Москва, ул. Обжарочная, 7<br>
+          <a class="site-footer__link" href="tel:+74950000000">+7 (495) 000-00-00</a><br>
+          <a class="site-footer__link" href="mailto:hello@zerno.example">hello@zerno.example</a>
+        </address>
+      </section>
+    </div>
+    <div class="container site-footer__bottom">
+      <p>&copy; 2026 Зерно. Учебный проект по дисциплине «Фронтенд и бэкенд разработка».</p>
+      <a class="site-footer__link" href="#top">Наверх ↑</a>
     </div>
   </footer>
 </body>

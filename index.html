@@ -9,14 +9,16 @@
   <script src="js/main.js" defer></script>
 </head>
 <body id="top">
-  <header class="header">
-    <div class="container header-inner">
-      <a class="logo" href="index.html">Зерно</a>
-      <nav class="nav" aria-label="Основная навигация">
-        <ul class="menu">
-          <li><a href="index.html" aria-current="page">Главная</a></li>
-          <li><a href="catalog.html">Каталог</a></li>
-          <li><a href="contacts.html">Контакты</a></li>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-header__logo" href="index.html">
+        <span class="site-header__logo-mark" aria-hidden="true">●</span> Зерно
+      </a>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="index.html" aria-current="page">Главная</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
         </ul>
       </nav>
     </div>
@@ -24,145 +26,191 @@
 
   <main class="container">
     <section class="hero">
-      <h1>Кофе свежей обжарки с доставкой</h1>
-      <p>
-        Обжариваем зерно небольшими партиями каждую неделю и отправляем
-        его в течение двух дней после обжарки.
-      </p>
-      <a class="button" href="catalog.html">Перейти в каталог</a>
+      <div class="hero__content">
+        <p class="hero__eyebrow">Обжарочная specialty-кофе</p>
+        <h1 class="hero__title">Кофе свежей обжарки с доставкой</h1>
+        <p class="hero__text">
+          Обжариваем зерно небольшими партиями каждую неделю и отправляем
+          его в течение двух дней после обжарки.
+        </p>
+        <div class="hero__actions">
+          <a class="button" href="catalog.html">Перейти в каталог</a>
+        </div>
+      </div>
+      <img class="hero__image" src="images/hero.svg" alt="" width="480" height="360">
     </section>
 
     <nav class="page-anchors" aria-label="Разделы главной страницы">
-      <a href="#advantages">Преимущества</a>
-      <a href="#popular">Популярные сорта</a>
-      <a href="#contacts">Контакты</a>
+      <a class="page-anchors__link" href="#advantages">Преимущества</a>
+      <a class="page-anchors__link" href="#popular">Популярные сорта</a>
+      <a class="page-anchors__link" href="#contacts">Контакты</a>
     </nav>
 
-    <div class="content">
-      <div>
-        <section id="advantages" class="advantages">
-          <h2>Почему выбирают нас</h2>
-          <ul class="advantages-list">
-            <li>Обжарка не раньше чем за 7 дней до отправки.</li>
-            <li>Только specialty-зерно с оценкой от 80 баллов SCA.</li>
-            <li>Помол под ваш способ заваривания бесплатно.</li>
+    <div class="page-layout">
+      <div class="page-layout__main">
+        <section class="advantages" id="advantages">
+          <h2 class="section-title">Почему выбирают нас</h2>
+          <ul class="advantages__list">
+          <li class="advantages__item">
+            <span class="advantages__icon" aria-hidden="true">🔥</span>
+            <h3 class="advantages__title">Свежая обжарка</h3>
+            <p class="advantages__text">Обжариваем каждую неделю и отправляем не позже чем через 7 дней.</p>
+          </li>
+
+          <li class="advantages__item">
+            <span class="advantages__icon" aria-hidden="true">☕</span>
+            <h3 class="advantages__title">Specialty-зерно</h3>
+            <p class="advantages__text">Только кофе с оценкой от 80 баллов по шкале SCA.</p>
+          </li>
+
+          <li class="advantages__item">
+            <span class="advantages__icon" aria-hidden="true">⚙</span>
+            <h3 class="advantages__title">Помол бесплатно</h3>
+            <p class="advantages__text">Смелем под турку, фильтр, гейзер или эспрессо.</p>
+          </li>
           </ul>
         </section>
 
-        <section id="popular" class="popular">
-          <h2>Популярные сорта</h2>
+        <section class="popular" id="popular">
+          <h2 class="section-title">Популярные сорта</h2>
+          <div class="product-grid">
+            <article class="product-card">
+              <img class="product-card__image" src="images/products/ethiopia.svg" alt="Эфиопия Иргачеффе" width="400" height="300" loading="lazy">
+              <div class="product-card__body">
+                <p class="product-card__category">Моносорт</p>
+                <h3 class="product-card__title">Эфиопия Иргачеффе</h3>
+                <p class="product-card__description">Цветочный аромат, ноты бергамота и персика.</p>
+                <p class="product-card__price">890 ₽ <span class="product-card__unit">/ 250 г</span></p>
+                <button class="button product-card__button" type="button" data-product="Эфиопия Иргачеффе">Заказать</button>
+              </div>
+            </article>
 
-          <div class="products-grid">
-          <article class="product">
-            <img src="images/products/ethiopia.svg" alt="Эфиопия Иргачеффе" width="400" height="300">
-            <h3>Эфиопия Иргачеффе</h3>
-            <p>Цветочный аромат, ноты бергамота и персика.</p>
-            <p class="product-price">890 ₽ / 250 г</p>
-            <button class="button product-card__button" type="button" data-product="Эфиопия Иргачеффе">
-              Заказать
-            </button>
-          </article>
+            <article class="product-card">
+              <img class="product-card__image" src="images/products/colombia.svg" alt="Колумбия Супремо" width="400" height="300" loading="lazy">
+              <div class="product-card__body">
+                <p class="product-card__category">Моносорт</p>
+                <h3 class="product-card__title">Колумбия Супремо</h3>
+                <p class="product-card__description">Сбалансированный вкус с нотами карамели и ореха.</p>
+                <p class="product-card__price">760 ₽ <span class="product-card__unit">/ 250 г</span></p>
+                <button class="button product-card__button" type="button" data-product="Колумбия Супремо">Заказать</button>
+              </div>
+            </article>
 
-          <article class="product">
-            <img src="images/products/colombia.svg" alt="Колумбия Супремо" width="400" height="300">
-            <h3>Колумбия Супремо</h3>
-            <p>Сбалансированный вкус с нотами карамели и ореха.</p>
-            <p class="product-price">760 ₽ / 250 г</p>
-            <button class="button product-card__button" type="button" data-product="Колумбия Супремо">
-              Заказать
-            </button>
-          </article>
-
-          <article class="product">
-            <img src="images/products/utro.svg" alt="Эспрессо-смесь «Утро»" width="400" height="300">
-            <h3>Эспрессо-смесь «Утро»</h3>
-            <p>Плотное тело, шоколад и сухофрукты.</p>
-            <p class="product-price">690 ₽ / 250 г</p>
-            <button class="button product-card__button" type="button" data-product="Эспрессо-смесь «Утро»">
-              Заказать
-            </button>
-          </article>
+            <article class="product-card">
+              <img class="product-card__image" src="images/products/utro.svg" alt="Эспрессо-смесь «Утро»" width="400" height="300" loading="lazy">
+              <div class="product-card__body">
+                <p class="product-card__category">Смесь</p>
+                <h3 class="product-card__title">Эспрессо-смесь «Утро»</h3>
+                <p class="product-card__description">Плотное тело, шоколад и сухофрукты.</p>
+                <p class="product-card__price">690 ₽ <span class="product-card__unit">/ 250 г</span></p>
+                <button class="button product-card__button" type="button" data-product="Эспрессо-смесь «Утро»">Заказать</button>
+              </div>
+            </article>
           </div>
+          <a class="popular__more" href="catalog.html">Смотреть весь каталог →</a>
         </section>
       </div>
 
-      <aside class="sidebar">
-        <h2>Скидка на первый заказ</h2>
-        <p>Промокод <strong>FIRST10</strong> даёт 10% на первую покупку.</p>
+      <aside class="promo page-layout__aside">
+        <h2 class="promo__title">Скидка на первый заказ</h2>
+        <p class="promo__text">Промокод <strong class="promo__code">FIRST10</strong> даёт 10% на первую покупку.</p>
       </aside>
     </div>
 
-    <div class="success-message" id="success-message" role="status" hidden>
+    <div class="notice notice--success" id="success-message" role="status" hidden>
       Форма успешно отправлена! Мы свяжемся с вами в ближайшее время.
     </div>
   </main>
 
-  <footer id="contacts" class="footer">
-    <div class="container">
-      <p>Москва, ул. Обжарочная, 7 · +7 (495) 000-00-00 · hello@zerno.example</p>
-      <p>
-        <a href="catalog.html">Каталог</a> ·
-        <a href="contacts.html">Контакты</a> ·
-        <a href="#top">Наверх</a>
-      </p>
-      <p>&copy; 2026 Зерно. Учебный проект</p>
+  <footer class="site-footer" id="contacts">
+    <div class="container site-footer__inner">
+      <section class="site-footer__column">
+        <h2 class="site-footer__title">Зерно</h2>
+        <p class="site-footer__text">Обжариваем specialty-кофе небольшими партиями с 2019 года.</p>
+      </section>
+      <nav class="site-footer__column" aria-label="Каталог">
+        <h2 class="site-footer__title">Каталог</h2>
+        <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="catalog.html">Все товары</a></li>
+        </ul>
+      </nav>
+      <nav class="site-footer__column" aria-label="Покупателям">
+        <h2 class="site-footer__title">Покупателям</h2>
+        <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="index.html#advantages">Преимущества</a></li>
+            <li><a class="site-footer__link" href="index.html#popular">Популярные сорта</a></li>
+        </ul>
+      </nav>
+      <section class="site-footer__column">
+        <h2 class="site-footer__title">Контакты</h2>
+        <address class="site-footer__address">
+          Москва, ул. Обжарочная, 7<br>
+          <a class="site-footer__link" href="tel:+74950000000">+7 (495) 000-00-00</a><br>
+          <a class="site-footer__link" href="mailto:hello@zerno.example">hello@zerno.example</a>
+        </address>
+      </section>
+    </div>
+    <div class="container site-footer__bottom">
+      <p>&copy; 2026 Зерно. Учебный проект по дисциплине «Фронтенд и бэкенд разработка».</p>
+      <a class="site-footer__link" href="#top">Наверх ↑</a>
     </div>
   </footer>
 
   <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
-    <h2 id="order-dialog-title">Оформление заявки</h2>
+    <h2 class="order-dialog__title" id="order-dialog-title">Быстрая заявка</h2>
 
     <form class="order-form" id="order-form" action="#" method="post" novalidate>
       <input id="selected-product" name="selected-product" type="hidden">
 
-      <div class="form-field">
-        <label for="order-name">Имя</label>
-        <input id="order-name" name="name" type="text" placeholder="Введите ваше имя"
+      <div class="order-form__field">
+        <label class="order-form__label" for="dialog-name">Имя</label>
+        <input class="order-form__input" id="dialog-name" name="name" type="text" placeholder="Введите ваше имя"
           minlength="2" autocomplete="given-name" required>
       </div>
 
-      <div class="form-field">
-        <label for="order-email">E-mail</label>
-        <input id="order-email" name="email" type="email" placeholder="name@example.com"
+      <div class="order-form__field">
+        <label class="order-form__label" for="dialog-email">E-mail</label>
+        <input class="order-form__input" id="dialog-email" name="email" type="email" placeholder="name@example.com"
           autocomplete="email" required>
       </div>
 
-      <div class="form-field">
-        <label for="order-phone">Телефон</label>
-        <input id="order-phone" name="phone" type="tel" placeholder="+7 999 123-45-67"
-          pattern="^\+?[0-9\s\-\(\)]{10,18}$" autocomplete="tel" required>
-        <small>Формат: +7 999 123-45-67</small>
+      <div class="order-form__field">
+        <label class="order-form__label" for="dialog-phone">Телефон</label>
+        <input class="order-form__input" id="dialog-phone" name="phone" type="tel" placeholder="+7 999 123-45-67"
+          pattern="^\+?[0-9\s\-\(\)]{10,18}$" autocomplete="tel" aria-describedby="dialog-phone-hint" required>
+        <small class="order-form__hint" id="dialog-phone-hint">Формат: +7 999 123-45-67</small>
       </div>
 
-      <div class="form-field">
-        <label for="order-date">Желаемая дата доставки</label>
-        <input id="order-date" name="date" type="date" required>
+      <div class="order-form__field">
+        <label class="order-form__label" for="dialog-date">Желаемая дата доставки</label>
+        <input class="order-form__input" id="dialog-date" name="date" type="date" required>
       </div>
 
-      <div class="form-field">
-        <label for="order-topic">Тема заявки</label>
-        <select id="order-topic" name="topic" required>
+      <div class="order-form__field">
+        <label class="order-form__label" for="dialog-topic">Тема заявки</label>
+        <select class="order-form__input" id="dialog-topic" name="topic" required>
           <option value="">Выберите тему</option>
           <option value="order">Заказ кофе</option>
           <option value="subscription">Подписка на кофе</option>
           <option value="wholesale">Оптовая закупка</option>
+          <option value="question">Вопрос о товаре</option>
         </select>
       </div>
 
-      <div class="form-field">
-        <label for="order-comment">Комментарий</label>
-        <textarea id="order-comment" name="comment" rows="4" maxlength="500"
-          placeholder="Например: помол под турку"></textarea>
+      <div class="order-form__field">
+        <label class="order-form__label" for="dialog-comment">Комментарий</label>
+        <textarea class="order-form__input order-form__input--textarea" id="dialog-comment" name="comment" rows="4"
+          maxlength="500" placeholder="Например: позвоните перед доставкой"></textarea>
       </div>
 
-      <div class="form-field form-field-checkbox">
-        <input id="order-agree" name="agree" type="checkbox" required>
-        <label for="order-agree">Я согласен на обработку персональных данных</label>
+      <div class="order-form__field order-form__field--checkbox">
+        <input class="order-form__checkbox" id="dialog-agree" name="agree" type="checkbox" required>
+        <label class="order-form__label" for="dialog-agree">Я согласен на обработку персональных данных</label>
       </div>
 
-      <div class="form-actions">
+      <div class="order-form__actions">
         <button class="button" type="submit">Отправить</button>
-        <button class="button button-secondary" id="close-order-dialog" type="button">Закрыть</button>
+        <button class="button button--secondary" id="close-order-dialog" type="button">Закрыть</button>
       </div>
     </form>
   </dialog>
