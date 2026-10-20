@@ -6,8 +6,11 @@
   <title>Каталог кофе — Зерно</title>
   <meta name="description" content="Каталог кофе свежей обжарки: моносорта, эспрессо-смеси и аксессуары для заваривания.">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
 </head>
 <body id="top">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="site-header__logo" href="index.html">
@@ -17,13 +20,15 @@
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
           <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="catalog.html" aria-current="page">Каталог</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="delivery.html">Доставка и оплата</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
         </ul>
       </nav>
+      <a class="button site-header__cta" href="order.html">Оформить заявку</a>
     </div>
   </header>
 
-  <main class="container">
+  <main class="container" id="main">
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
       <ol class="breadcrumbs__list">
         <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="index.html">Главная</a></li>
@@ -40,6 +45,7 @@
           <ul class="catalog-filters__links">
             <li><a class="catalog-filters__link" href="#mono">Моносорта</a></li>
             <li><a class="catalog-filters__link" href="#blends">Эспрессо-смеси</a></li>
+            <li><a class="catalog-filters__link" href="#accessories">Аксессуары</a></li>
           </ul>
         </nav>
         <form class="catalog-filters__form" action="#">
@@ -54,51 +60,108 @@
             <label class="catalog-filters__option"><input type="radio" name="roast" value="espresso"> Под эспрессо</label>
             <label class="catalog-filters__option"><input type="radio" name="roast" value="any" checked> Любая</label>
           </fieldset>
-          <button class="button" type="button">Применить</button>
+          <fieldset class="catalog-filters__group">
+            <legend class="catalog-filters__legend">Цена, ₽</legend>
+            <div class="catalog-filters__range">
+              <label class="catalog-filters__option">от <input class="catalog-filters__input" type="number" name="price-from" min="0" value="500"></label>
+              <label class="catalog-filters__option">до <input class="catalog-filters__input" type="number" name="price-to" min="0" value="1500"></label>
+            </div>
+          </fieldset>
+          <label class="catalog-filters__option"><input type="checkbox" name="in-stock" checked> Только в наличии</label>
+
+          <div class="catalog-filters__actions">
+            <button class="button button--small" type="button">Применить</button>
+            <button class="button button--small button--secondary" type="reset">Сбросить</button>
+          </div>
         </form>
       </aside>
 
       <div class="catalog__content">
+        <div class="catalog__toolbar">
+          <p class="catalog__count">Найдено товаров: 8</p>
+          <label class="catalog__sort">
+            Сортировка:
+            <select class="catalog__select" name="sort">
+              <option value="popular">По популярности</option>
+              <option value="price-asc">Сначала дешевле</option>
+              <option value="price-desc">Сначала дороже</option>
+            </select>
+          </label>
+        </div>
+
         <section class="catalog__section" id="mono">
           <h2 class="section-title">Моносорта</h2>
           <div class="product-grid">
-            <article class="product-card">
+            <article class="product-card product-card--hit">
+              <span class="product-card__badge">Хит</span>
               <img class="product-card__image" src="images/products/ethiopia.svg" alt="Эфиопия Иргачеффе" width="400" height="300" loading="lazy">
               <div class="product-card__body">
-                <p class="product-card__category">Моносорт</p>
+                <p class="product-card__category">Моносорт · Под фильтр</p>
                 <h3 class="product-card__title">Эфиопия Иргачеффе</h3>
                 <p class="product-card__description">Цветочный аромат, ноты бергамота и персика.</p>
                 <p class="product-card__price">890 ₽ <span class="product-card__unit">/ 250 г</span></p>
+                <div class="product-card__actions">
+                  <a class="button button--secondary" href="product.html">Подробнее</a>
+                  <button class="button product-card__button" type="button" data-product="Эфиопия Иргачеффе">Заказать</button>
+                </div>
               </div>
             </article>
 
             <article class="product-card">
               <img class="product-card__image" src="images/products/colombia.svg" alt="Колумбия Супремо" width="400" height="300" loading="lazy">
               <div class="product-card__body">
-                <p class="product-card__category">Моносорт</p>
+                <p class="product-card__category">Моносорт · Универсальная</p>
                 <h3 class="product-card__title">Колумбия Супремо</h3>
                 <p class="product-card__description">Сбалансированный вкус с нотами карамели и ореха.</p>
                 <p class="product-card__price">760 ₽ <span class="product-card__unit">/ 250 г</span></p>
+                <div class="product-card__actions">
+                  <a class="button button--secondary" href="product.html">Подробнее</a>
+                  <button class="button product-card__button" type="button" data-product="Колумбия Супремо">Заказать</button>
+                </div>
               </div>
             </article>
 
-            <article class="product-card">
+            <article class="product-card product-card--new">
+              <span class="product-card__badge">Новинка</span>
               <img class="product-card__image" src="images/products/kenya.svg" alt="Кения АА" width="400" height="300" loading="lazy">
               <div class="product-card__body">
-                <p class="product-card__category">Моносорт</p>
+                <p class="product-card__category">Моносорт · Под фильтр</p>
                 <h3 class="product-card__title">Кения АА</h3>
                 <p class="product-card__description">Яркая кислотность, чёрная смородина и томат.</p>
                 <p class="product-card__price">940 ₽ <span class="product-card__unit">/ 250 г</span></p>
+                <div class="product-card__actions">
+                  <a class="button button--secondary" href="product.html">Подробнее</a>
+                  <button class="button product-card__button" type="button" data-product="Кения АА">Заказать</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card product-card--soldout">
+              <span class="product-card__badge">Нет в наличии</span>
+              <img class="product-card__image" src="images/products/guatemala.svg" alt="Гватемала Антигуа" width="400" height="300" loading="lazy">
+              <div class="product-card__body">
+                <p class="product-card__category">Моносорт · Универсальная</p>
+                <h3 class="product-card__title">Гватемала Антигуа</h3>
+                <p class="product-card__description">Молочный шоколад, специи и апельсиновая цедра.</p>
+                <p class="product-card__price">820 ₽ <span class="product-card__unit">/ 250 г</span></p>
+                <div class="product-card__actions">
+                  <a class="button button--secondary" href="product.html">Подробнее</a>
+                  <button class="button product-card__button" type="button" disabled>Нет в наличии</button>
+                </div>
               </div>
             </article>
 
             <article class="product-card">
-              <img class="product-card__image" src="images/products/guatemala.svg" alt="Гватемала Антигуа" width="400" height="300" loading="lazy">
+              <img class="product-card__image" src="images/products/decaf.svg" alt="Колумбия Декаф" width="400" height="300" loading="lazy">
               <div class="product-card__body">
-                <p class="product-card__category">Моносорт</p>
-                <h3 class="product-card__title">Гватемала Антигуа</h3>
-                <p class="product-card__description">Молочный шоколад, специи и апельсиновая цедра.</p>
-                <p class="product-card__price">820 ₽ <span class="product-card__unit">/ 250 г</span></p>
+                <p class="product-card__category">Без кофеина · Под эспрессо</p>
+                <h3 class="product-card__title">Колумбия Декаф</h3>
+                <p class="product-card__description">Мягкий вкус без кофеина: шоколад и печенье.</p>
+                <p class="product-card__price">780 ₽ <span class="product-card__unit">/ 250 г</span></p>
+                <div class="product-card__actions">
+                  <a class="button button--secondary" href="product.html">Подробнее</a>
+                  <button class="button product-card__button" type="button" data-product="Колумбия Декаф">Заказать</button>
+                </div>
               </div>
             </article>
           </div>
@@ -106,23 +169,51 @@
         <section class="catalog__section" id="blends">
           <h2 class="section-title">Эспрессо-смеси</h2>
           <div class="product-grid">
-            <article class="product-card">
+            <article class="product-card product-card--hit">
+              <span class="product-card__badge">Хит</span>
               <img class="product-card__image" src="images/products/utro.svg" alt="Эспрессо-смесь «Утро»" width="400" height="300" loading="lazy">
               <div class="product-card__body">
-                <p class="product-card__category">Смесь</p>
+                <p class="product-card__category">Смесь · Под эспрессо</p>
                 <h3 class="product-card__title">Эспрессо-смесь «Утро»</h3>
                 <p class="product-card__description">Плотное тело, шоколад и сухофрукты.</p>
                 <p class="product-card__price">690 ₽ <span class="product-card__unit">/ 250 г</span></p>
+                <div class="product-card__actions">
+                  <a class="button button--secondary" href="product.html">Подробнее</a>
+                  <button class="button product-card__button" type="button" data-product="Эспрессо-смесь «Утро»">Заказать</button>
+                </div>
               </div>
             </article>
 
-            <article class="product-card">
+            <article class="product-card product-card--discount">
+              <span class="product-card__badge">−16%</span>
               <img class="product-card__image" src="images/products/brazil.svg" alt="Бразилия Сантос" width="400" height="300" loading="lazy">
               <div class="product-card__body">
-                <p class="product-card__category">Смесь</p>
+                <p class="product-card__category">Смесь · Под эспрессо</p>
                 <h3 class="product-card__title">Бразилия Сантос</h3>
                 <p class="product-card__description">Мягкий вкус, какао и жареный орех.</p>
-                <p class="product-card__price">520 ₽ <span class="product-card__unit">/ 250 г</span></p>
+                <p class="product-card__price"><s class="product-card__price-old">620 ₽</s> 520 ₽ <span class="product-card__unit">/ 250 г</span></p>
+                <div class="product-card__actions">
+                  <a class="button button--secondary" href="product.html">Подробнее</a>
+                  <button class="button product-card__button" type="button" data-product="Бразилия Сантос">Заказать</button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="catalog__section" id="accessories">
+          <h2 class="section-title">Аксессуары</h2>
+          <div class="product-grid">
+            <article class="product-card">
+              <img class="product-card__image" src="images/products/v60.svg" alt="Воронка V60" width="400" height="300" loading="lazy">
+              <div class="product-card__body">
+                <p class="product-card__category">Аксессуар · Керамика, размер 02</p>
+                <h3 class="product-card__title">Воронка V60</h3>
+                <p class="product-card__description">Керамическая воронка для пуровера на 1–2 чашки.</p>
+                <p class="product-card__price">1 490 ₽ <span class="product-card__unit">/ шт.</span></p>
+                <div class="product-card__actions">
+                  <a class="button button--secondary" href="product.html">Подробнее</a>
+                  <button class="button product-card__button" type="button" data-product="Воронка V60">Заказать</button>
+                </div>
               </div>
             </article>
           </div>
@@ -145,14 +236,18 @@
       <nav class="site-footer__column" aria-label="Каталог">
         <h2 class="site-footer__title">Каталог</h2>
         <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="catalog.html">Все товары</a></li>
+            <li><a class="site-footer__link" href="catalog.html#mono">Моносорта</a></li>
+            <li><a class="site-footer__link" href="catalog.html#blends">Эспрессо-смеси</a></li>
+            <li><a class="site-footer__link" href="catalog.html#accessories">Аксессуары</a></li>
         </ul>
       </nav>
       <nav class="site-footer__column" aria-label="Покупателям">
         <h2 class="site-footer__title">Покупателям</h2>
         <ul class="site-footer__list">
             <li><a class="site-footer__link" href="index.html#advantages">Преимущества</a></li>
-            <li><a class="site-footer__link" href="index.html#popular">Популярные сорта</a></li>
+            <li><a class="site-footer__link" href="delivery.html#tariffs">Тарифы доставки</a></li>
+            <li><a class="site-footer__link" href="delivery.html#faq">Вопросы и ответы</a></li>
+            <li><a class="site-footer__link" href="order.html">Оформить заявку</a></li>
         </ul>
       </nav>
       <section class="site-footer__column">
@@ -169,5 +264,73 @@
       <a class="site-footer__link" href="#top">Наверх ↑</a>
     </div>
   </footer>
+
+  <a class="to-top" href="#top" aria-label="Наверх">↑</a>
+
+  <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+    <button class="order-dialog__close" type="button" data-dialog-close aria-label="Закрыть окно">×</button>
+    <h2 class="order-dialog__title" id="order-dialog-title">Быстрая заявка</h2>
+
+    <form class="order-form" id="order-form" action="#" method="post" novalidate>
+      <input id="selected-product" name="selected-product" type="hidden">
+
+      <p class="order-dialog__product">Товар: <strong id="selected-product-label">не выбран</strong></p>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="dialog-name">Имя <span class="order-form__required" aria-hidden="true">*</span></label>
+        <input class="order-form__input" id="dialog-name" name="name" type="text" placeholder="Введите ваше имя"
+          minlength="2" autocomplete="given-name" required>
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="dialog-email">E-mail <span class="order-form__required" aria-hidden="true">*</span></label>
+        <input class="order-form__input" id="dialog-email" name="email" type="email" placeholder="name@example.com"
+          autocomplete="email" required>
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="dialog-phone">Телефон <span class="order-form__required" aria-hidden="true">*</span></label>
+        <input class="order-form__input" id="dialog-phone" name="phone" type="tel" placeholder="+7 999 123-45-67"
+          pattern="^\+?[0-9\s\-\(\)]{10,18}$" autocomplete="tel" aria-describedby="dialog-phone-hint" required>
+        <small class="order-form__hint" id="dialog-phone-hint">Формат: +7 999 123-45-67</small>
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="dialog-date">Желаемая дата доставки</label>
+        <input class="order-form__input" id="dialog-date" name="date" type="date" required>
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="dialog-topic">Тема заявки</label>
+        <select class="order-form__input" id="dialog-topic" name="topic" required>
+          <option value="">Выберите тему</option>
+          <option value="order">Заказ кофе</option>
+          <option value="subscription">Подписка на кофе</option>
+          <option value="wholesale">Оптовая закупка</option>
+          <option value="question">Вопрос о товаре</option>
+        </select>
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="dialog-comment">Комментарий</label>
+        <textarea class="order-form__input order-form__input--textarea" id="dialog-comment" name="comment" rows="4"
+          maxlength="500" placeholder="Например: позвоните перед доставкой"></textarea>
+      </div>
+
+      <div class="order-form__field order-form__field--checkbox">
+        <input class="order-form__checkbox" id="dialog-agree" name="agree" type="checkbox" required>
+        <label class="order-form__label" for="dialog-agree">Я согласен на обработку персональных данных</label>
+      </div>
+
+      <div class="order-form__actions">
+        <button class="button" type="submit">Отправить</button>
+        <button class="button button--secondary" type="button" data-dialog-close>Отмена</button>
+      </div>
+
+      <p class="order-form__success" role="status" hidden>
+        Спасибо! Заявка отправлена — мы свяжемся с вами в течение рабочего дня.
+      </p>
+    </form>
+  </dialog>
 </body>
 </html>

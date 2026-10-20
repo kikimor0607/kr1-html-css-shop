@@ -831,3 +831,708 @@ button:disabled,
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   font-size: var(--font-size-sm);
 }
+
+/* =========================================================
+   Самостоятельные доработки КР №1
+   ========================================================= */
+
+/* ===============================
+   20. Доступность: skip-link
+   =============================== */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--space-md);
+  z-index: calc(var(--z-header) + 1);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  top: var(--space-md);
+}
+
+.site-header__cta {
+  border-color: var(--color-accent-strong);
+  background-color: var(--color-accent-strong);
+  color: var(--color-dark);
+}
+
+.site-header__cta:hover {
+  border-color: var(--color-surface);
+  background-color: var(--color-surface);
+  color: var(--color-dark);
+}
+
+.site-header__cta:focus-visible {
+  outline-color: var(--color-accent);
+}
+
+/* ===============================
+   21. Модификаторы карточки товара
+   =============================== */
+.product-card__badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: var(--z-badge);
+  padding: 4px 10px;
+  border-radius: var(--radius-round);
+  background-color: var(--color-dark);
+  color: var(--color-surface);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.product-card--hit .product-card__badge {
+  background-color: var(--color-hit);
+}
+
+.product-card--new .product-card__badge {
+  background-color: var(--color-new);
+}
+
+.product-card--discount .product-card__badge {
+  background-color: var(--color-discount);
+}
+
+.product-card--discount {
+  border-color: var(--color-discount);
+}
+
+.product-card--soldout .product-card__image {
+  filter: grayscale(1);
+  opacity: 0.6;
+}
+
+.product-card--soldout .product-card__badge {
+  background-color: var(--color-text-muted);
+}
+
+.product-card__price-old {
+  margin-right: var(--space-xs);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-md);
+  font-weight: 400;
+}
+
+.product-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+.product-card__actions .button {
+  flex: 1 1 auto;
+  padding: 8px 12px;
+  font-size: var(--font-size-sm);
+}
+
+/* ===============================
+   22. Отзывы (reviews, review)
+   =============================== */
+.reviews__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-lg);
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.review__text {
+  font-style: italic;
+}
+
+.review__author {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.review__rating {
+  color: var(--color-hit);
+}
+
+/* ===============================
+   23. Панель каталога (catalog__toolbar)
+   =============================== */
+.catalog__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  padding: 12px var(--space-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.catalog__count {
+  color: var(--color-text-muted);
+}
+
+.catalog__sort {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.catalog__select,
+.catalog-filters__input {
+  padding: 6px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font: inherit;
+}
+
+.catalog-filters__input {
+  width: 90px;
+}
+
+.catalog-filters__range {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.catalog-filters__actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.catalog-filters__link:hover {
+  text-decoration: none;
+}
+
+/* ===============================
+   24. Кнопка «Наверх» (to-top) — fixed
+   =============================== */
+.to-top {
+  position: fixed;
+  right: var(--space-lg);
+  bottom: var(--space-lg);
+  z-index: var(--z-fixed);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  font-size: 22px;
+  text-decoration: none;
+  box-shadow: var(--shadow-card);
+  transition: background-color var(--transition), transform var(--transition);
+}
+
+.to-top:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--color-surface);
+  transform: translateY(-3px);
+}
+
+/* ===============================
+   25. Модальное окно — доработки
+   =============================== */
+.order-dialog {
+  position: relative;
+}
+
+.order-dialog__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  color: var(--color-text);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color var(--transition);
+}
+
+.order-dialog__close:hover {
+  background-color: var(--color-accent-strong);
+}
+
+.order-dialog__product {
+  margin-bottom: var(--space-md);
+  padding: 10px var(--space-md);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-accent);
+}
+
+/* ===============================
+   26. Форма — доработки
+   =============================== */
+.order-form--card {
+  padding: var(--space-xl);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.order-form__required {
+  color: var(--color-danger);
+}
+
+.order-form__fieldset {
+  margin: 0 0 var(--space-md);
+  padding: 0;
+  border: none;
+}
+
+.order-form__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-lg);
+  margin-top: var(--space-sm);
+}
+
+.order-form__option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  cursor: pointer;
+}
+
+.order-form__success {
+  margin-top: var(--space-lg);
+  padding: var(--space-md);
+  border-left: 4px solid var(--color-success);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-success-bg);
+}
+
+/* ===============================
+   27. Страница товара (product-detail) — Grid
+   =============================== */
+.product-detail {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xxl);
+}
+
+.product-detail__gallery {
+  position: relative;
+  align-self: start;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.product-detail__image {
+  width: 100%;
+}
+
+.product-detail__badge {
+  position: absolute;
+  top: var(--space-md);
+  left: var(--space-md);
+  z-index: var(--z-badge);
+  padding: 6px 14px;
+  border-radius: var(--radius-round);
+  background-color: var(--color-hit);
+  color: var(--color-surface);
+  font-weight: 700;
+}
+
+.product-detail__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.product-detail__category,
+.product-detail__rating,
+.product-detail__stock {
+  color: var(--color-text-muted);
+}
+
+.product-detail__rating span {
+  color: var(--color-hit);
+}
+
+.product-detail__stock {
+  color: var(--color-success);
+  font-weight: 600;
+}
+
+.product-detail__title {
+  font-size: 40px;
+  line-height: 1.15;
+}
+
+.product-detail__notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  list-style: none;
+}
+
+.tag {
+  padding: 4px 12px;
+  border-radius: var(--radius-round);
+  background-color: var(--color-accent);
+  font-size: var(--font-size-sm);
+}
+
+.product-detail__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.product-detail__legend {
+  margin-bottom: var(--space-sm);
+  font-weight: 700;
+}
+
+.option-chip {
+  position: relative;
+  cursor: pointer;
+}
+
+.option-chip__input {
+  position: absolute;
+  opacity: 0;
+}
+
+.option-chip__label {
+  display: block;
+  padding: 8px 14px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  transition: border-color var(--transition), background-color var(--transition);
+}
+
+.option-chip:hover .option-chip__label {
+  border-color: var(--color-primary);
+}
+
+.option-chip__input:checked + .option-chip__label {
+  border-color: var(--color-primary);
+  background-color: var(--color-accent);
+  font-weight: 700;
+}
+
+.option-chip__input:focus-visible + .option-chip__label {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.product-detail__price {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.product-detail__unit {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-md);
+  font-weight: 400;
+}
+
+.product-detail__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.product-info {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  align-items: start;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xxl);
+}
+
+.brew-tips {
+  padding: var(--space-lg);
+  background-color: var(--color-dark);
+  border-radius: var(--radius-md);
+  color: var(--color-border);
+}
+
+.brew-tips__title {
+  margin-bottom: var(--space-md);
+  color: var(--color-surface);
+  font-size: var(--font-size-lg);
+}
+
+.brew-tips__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  padding-left: var(--space-lg);
+}
+
+.brew-tips__link {
+  color: var(--color-accent);
+}
+
+.brew-tips__link:hover {
+  color: var(--color-surface);
+}
+
+.related {
+  margin-bottom: var(--space-xxl);
+}
+
+/* ===============================
+   28. Таблица (spec-table)
+   =============================== */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 0 0 1px var(--color-border);
+}
+
+.spec-table__caption {
+  padding-bottom: var(--space-sm);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  text-align: left;
+  caption-side: top;
+}
+
+.spec-table__head {
+  padding: 12px var(--space-md);
+  background-color: var(--color-dark);
+  color: var(--color-surface);
+  text-align: left;
+}
+
+.spec-table__head--accent {
+  background-color: var(--color-primary);
+}
+
+.spec-table__name,
+.spec-table__value {
+  padding: 12px var(--space-md);
+  border-top: 1px solid var(--color-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.spec-table__name {
+  width: 40%;
+  font-weight: 600;
+}
+
+.spec-table tbody tr:nth-child(even) {
+  background-color: var(--color-bg);
+}
+
+.spec-table tbody tr:hover {
+  background-color: var(--color-accent);
+}
+
+.spec-table--compare .spec-table__name {
+  width: 22%;
+}
+
+/* ===============================
+   29. Оформление заявки (steps, order, order-summary)
+   =============================== */
+.steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+  list-style: none;
+  counter-reset: step;
+}
+
+.steps__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 8px 16px 8px 8px;
+  border-radius: var(--radius-round);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  counter-increment: step;
+}
+
+.steps__item::before {
+  content: counter(step);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  font-weight: 700;
+}
+
+.steps__item--active {
+  border-color: var(--color-primary);
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.steps__item--active::before {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.order {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  align-items: start;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xxl);
+}
+
+.order-summary {
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-md));
+  padding: var(--space-lg);
+  background-color: var(--color-accent);
+  border-radius: var(--radius-lg);
+}
+
+.order-summary__title {
+  margin-bottom: var(--space-md);
+  font-size: var(--font-size-lg);
+}
+
+.order-summary__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: var(--space-md);
+  list-style: none;
+}
+
+.order-summary__item {
+  padding-left: 28px;
+  position: relative;
+}
+
+.order-summary__item::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-success);
+  font-weight: 700;
+}
+
+.order-summary__note {
+  font-size: var(--font-size-sm);
+}
+
+/* ===============================
+   30. Доставка и оплата (payment, faq)
+   =============================== */
+.delivery,
+.payment,
+.faq {
+  margin-bottom: var(--space-xxl);
+}
+
+.payment__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-lg);
+  list-style: none;
+}
+
+.payment__item {
+  padding: var(--space-lg);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-top: 4px solid var(--color-primary);
+  border-radius: var(--radius-md);
+}
+
+.payment__title {
+  margin-bottom: var(--space-sm);
+  font-size: 18px;
+}
+
+.payment__text {
+  color: var(--color-text-muted);
+}
+
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 820px;
+}
+
+.faq__item {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.faq__item[open] {
+  border-color: var(--color-primary);
+}
+
+.faq__question {
+  padding: var(--space-md) var(--space-lg);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.faq__question:hover {
+  color: var(--color-primary);
+}
+
+.faq__answer {
+  padding: 0 var(--space-lg) var(--space-md);
+  color: var(--color-text-muted);
+}
+
+/* ===============================
+   31. Уменьшение анимаций
+   =============================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}
