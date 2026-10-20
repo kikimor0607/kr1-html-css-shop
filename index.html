@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Зерно — кофе свежей обжарки</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
 </head>
 <body>
   <header class="header">
@@ -45,22 +46,31 @@
         <section id="popular" class="popular">
           <h2>Популярные сорта</h2>
 
-          <article class="product">
+          <article class="product product-card">
             <h3>Эфиопия Иргачеффе</h3>
             <p>Цветочный аромат, ноты бергамота и персика.</p>
             <p>Цена: 890 руб. / 250 г</p>
+            <button class="button product-card__button" type="button" data-product="Эфиопия Иргачеффе">
+              Заказать
+            </button>
           </article>
 
-          <article class="product">
+          <article class="product product-card">
             <h3>Колумбия Супремо</h3>
             <p>Сбалансированный вкус с нотами карамели и ореха.</p>
             <p>Цена: 760 руб. / 250 г</p>
+            <button class="button product-card__button" type="button" data-product="Колумбия Супремо">
+              Заказать
+            </button>
           </article>
 
-          <article class="product">
+          <article class="product product-card">
             <h3>Эспрессо-смесь «Утро»</h3>
             <p>Плотное тело, шоколад и сухофрукты. Для эспрессо и молочных напитков.</p>
             <p>Цена: 690 руб. / 250 г</p>
+            <button class="button product-card__button" type="button" data-product="Эспрессо-смесь «Утро»">
+              Заказать
+            </button>
           </article>
         </section>
       </div>
@@ -70,6 +80,10 @@
         <p>Промокод <strong>FIRST10</strong> даёт 10% на первую покупку.</p>
       </aside>
     </div>
+
+    <div class="success-message" id="success-message" role="status" hidden>
+      Форма успешно отправлена! Мы свяжемся с вами в ближайшее время.
+    </div>
   </main>
 
   <footer id="contacts" class="footer">
@@ -78,5 +92,63 @@
       <p>&copy; 2026 Зерно. Учебный проект</p>
     </div>
   </footer>
+
+  <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+    <h2 id="order-dialog-title">Оформление заявки</h2>
+
+    <form class="order-form" id="order-form" action="#" method="post" novalidate>
+      <input id="selected-product" name="selected-product" type="hidden">
+
+      <div class="form-field">
+        <label for="order-name">Имя</label>
+        <input id="order-name" name="name" type="text" placeholder="Введите ваше имя"
+          minlength="2" autocomplete="given-name" required>
+      </div>
+
+      <div class="form-field">
+        <label for="order-email">E-mail</label>
+        <input id="order-email" name="email" type="email" placeholder="name@example.com"
+          autocomplete="email" required>
+      </div>
+
+      <div class="form-field">
+        <label for="order-phone">Телефон</label>
+        <input id="order-phone" name="phone" type="tel" placeholder="+7 999 123-45-67"
+          pattern="^\+?[0-9\s\-\(\)]{10,18}$" autocomplete="tel" required>
+        <small>Формат: +7 999 123-45-67</small>
+      </div>
+
+      <div class="form-field">
+        <label for="order-date">Желаемая дата доставки</label>
+        <input id="order-date" name="date" type="date" required>
+      </div>
+
+      <div class="form-field">
+        <label for="order-topic">Тема заявки</label>
+        <select id="order-topic" name="topic" required>
+          <option value="">Выберите тему</option>
+          <option value="order">Заказ кофе</option>
+          <option value="subscription">Подписка на кофе</option>
+          <option value="wholesale">Оптовая закупка</option>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <label for="order-comment">Комментарий</label>
+        <textarea id="order-comment" name="comment" rows="4" maxlength="500"
+          placeholder="Например: помол под турку"></textarea>
+      </div>
+
+      <div class="form-field form-field-checkbox">
+        <input id="order-agree" name="agree" type="checkbox" required>
+        <label for="order-agree">Я согласен на обработку персональных данных</label>
+      </div>
+
+      <div class="form-actions">
+        <button class="button" type="submit">Отправить</button>
+        <button class="button button-secondary" id="close-order-dialog" type="button">Закрыть</button>
+      </div>
+    </form>
+  </dialog>
 </body>
 </html>
