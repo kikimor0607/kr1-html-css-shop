@@ -8,14 +8,16 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body id="top">
-  <header class="header">
-    <div class="container header-inner">
-      <a class="logo" href="index.html">Зерно</a>
-      <nav class="nav" aria-label="Основная навигация">
-        <ul class="menu">
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="catalog.html" aria-current="page">Каталог</a></li>
-          <li><a href="contacts.html">Контакты</a></li>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-header__logo" href="index.html">
+        <span class="site-header__logo-mark" aria-hidden="true">●</span> Зерно
+      </a>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="catalog.html" aria-current="page">Каталог</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
         </ul>
       </nav>
     </div>
@@ -23,98 +25,148 @@
 
   <main class="container">
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
-      <a href="index.html">Главная</a> / <span aria-current="page">Каталог</span>
+      <ol class="breadcrumbs__list">
+        <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="index.html">Главная</a></li>
+        <li class="breadcrumbs__item" aria-current="page">Каталог</li>
+      </ol>
     </nav>
 
-    <h1>Каталог</h1>
+    <h1 class="page-title">Каталог</h1>
 
-    <div class="catalog-layout">
-      <aside class="filters" aria-label="Фильтры каталога">
-        <h2>Фильтры</h2>
-        <form class="filters-form" action="#">
-          <fieldset>
-            <legend>Категория</legend>
-            <label><input type="checkbox" name="category" value="mono" checked> Моносорта</label>
-            <label><input type="checkbox" name="category" value="blend" checked> Смеси</label>
+    <div class="catalog">
+      <aside class="catalog-filters" aria-label="Фильтры каталога">
+        <h2 class="catalog-filters__title">Фильтры</h2>
+        <nav aria-label="Категории каталога">
+          <ul class="catalog-filters__links">
+            <li><a class="catalog-filters__link" href="#mono">Моносорта</a></li>
+            <li><a class="catalog-filters__link" href="#blends">Эспрессо-смеси</a></li>
+          </ul>
+        </nav>
+        <form class="catalog-filters__form" action="#">
+          <fieldset class="catalog-filters__group">
+            <legend class="catalog-filters__legend">Категория</legend>
+            <label class="catalog-filters__option"><input type="checkbox" name="category" value="mono" checked> Моносорта</label>
+            <label class="catalog-filters__option"><input type="checkbox" name="category" value="blend" checked> Смеси</label>
           </fieldset>
-          <fieldset>
-            <legend>Обжарка</legend>
-            <label><input type="radio" name="roast" value="filter"> Под фильтр</label>
-            <label><input type="radio" name="roast" value="espresso"> Под эспрессо</label>
-            <label><input type="radio" name="roast" value="any" checked> Любая</label>
+          <fieldset class="catalog-filters__group">
+            <legend class="catalog-filters__legend">Обжарка</legend>
+            <label class="catalog-filters__option"><input type="radio" name="roast" value="filter"> Под фильтр</label>
+            <label class="catalog-filters__option"><input type="radio" name="roast" value="espresso"> Под эспрессо</label>
+            <label class="catalog-filters__option"><input type="radio" name="roast" value="any" checked> Любая</label>
           </fieldset>
           <button class="button" type="button">Применить</button>
         </form>
       </aside>
 
-      <section id="products" class="catalog-products" aria-label="Товары">
-        <div class="products-grid">
-        <article class="product">
-          <img src="images/products/ethiopia.svg" alt="Эфиопия Иргачеффе" width="400" height="300">
-          <p class="product-category">Моносорт</p>
-          <h3>Эфиопия Иргачеффе</h3>
-          <p>Цветочный аромат, ноты бергамота и персика.</p>
-          <p class="product-price">890 ₽ / 250 г</p>
-        </article>
+      <div class="catalog__content">
+        <section class="catalog__section" id="mono">
+          <h2 class="section-title">Моносорта</h2>
+          <div class="product-grid">
+            <article class="product-card">
+              <img class="product-card__image" src="images/products/ethiopia.svg" alt="Эфиопия Иргачеффе" width="400" height="300" loading="lazy">
+              <div class="product-card__body">
+                <p class="product-card__category">Моносорт</p>
+                <h3 class="product-card__title">Эфиопия Иргачеффе</h3>
+                <p class="product-card__description">Цветочный аромат, ноты бергамота и персика.</p>
+                <p class="product-card__price">890 ₽ <span class="product-card__unit">/ 250 г</span></p>
+              </div>
+            </article>
 
-        <article class="product">
-          <img src="images/products/colombia.svg" alt="Колумбия Супремо" width="400" height="300">
-          <p class="product-category">Моносорт</p>
-          <h3>Колумбия Супремо</h3>
-          <p>Сбалансированный вкус с нотами карамели и ореха.</p>
-          <p class="product-price">760 ₽ / 250 г</p>
-        </article>
+            <article class="product-card">
+              <img class="product-card__image" src="images/products/colombia.svg" alt="Колумбия Супремо" width="400" height="300" loading="lazy">
+              <div class="product-card__body">
+                <p class="product-card__category">Моносорт</p>
+                <h3 class="product-card__title">Колумбия Супремо</h3>
+                <p class="product-card__description">Сбалансированный вкус с нотами карамели и ореха.</p>
+                <p class="product-card__price">760 ₽ <span class="product-card__unit">/ 250 г</span></p>
+              </div>
+            </article>
 
-        <article class="product">
-          <img src="images/products/kenya.svg" alt="Кения АА" width="400" height="300">
-          <p class="product-category">Моносорт</p>
-          <h3>Кения АА</h3>
-          <p>Яркая кислотность, чёрная смородина и томат.</p>
-          <p class="product-price">940 ₽ / 250 г</p>
-        </article>
+            <article class="product-card">
+              <img class="product-card__image" src="images/products/kenya.svg" alt="Кения АА" width="400" height="300" loading="lazy">
+              <div class="product-card__body">
+                <p class="product-card__category">Моносорт</p>
+                <h3 class="product-card__title">Кения АА</h3>
+                <p class="product-card__description">Яркая кислотность, чёрная смородина и томат.</p>
+                <p class="product-card__price">940 ₽ <span class="product-card__unit">/ 250 г</span></p>
+              </div>
+            </article>
 
-        <article class="product">
-          <img src="images/products/guatemala.svg" alt="Гватемала Антигуа" width="400" height="300">
-          <p class="product-category">Моносорт</p>
-          <h3>Гватемала Антигуа</h3>
-          <p>Молочный шоколад, специи и апельсиновая цедра.</p>
-          <p class="product-price">820 ₽ / 250 г</p>
-        </article>
+            <article class="product-card">
+              <img class="product-card__image" src="images/products/guatemala.svg" alt="Гватемала Антигуа" width="400" height="300" loading="lazy">
+              <div class="product-card__body">
+                <p class="product-card__category">Моносорт</p>
+                <h3 class="product-card__title">Гватемала Антигуа</h3>
+                <p class="product-card__description">Молочный шоколад, специи и апельсиновая цедра.</p>
+                <p class="product-card__price">820 ₽ <span class="product-card__unit">/ 250 г</span></p>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="catalog__section" id="blends">
+          <h2 class="section-title">Эспрессо-смеси</h2>
+          <div class="product-grid">
+            <article class="product-card">
+              <img class="product-card__image" src="images/products/utro.svg" alt="Эспрессо-смесь «Утро»" width="400" height="300" loading="lazy">
+              <div class="product-card__body">
+                <p class="product-card__category">Смесь</p>
+                <h3 class="product-card__title">Эспрессо-смесь «Утро»</h3>
+                <p class="product-card__description">Плотное тело, шоколад и сухофрукты.</p>
+                <p class="product-card__price">690 ₽ <span class="product-card__unit">/ 250 г</span></p>
+              </div>
+            </article>
 
-        <article class="product">
-          <img src="images/products/utro.svg" alt="Эспрессо-смесь «Утро»" width="400" height="300">
-          <p class="product-category">Смесь</p>
-          <h3>Эспрессо-смесь «Утро»</h3>
-          <p>Плотное тело, шоколад и сухофрукты.</p>
-          <p class="product-price">690 ₽ / 250 г</p>
-        </article>
-
-        <article class="product">
-          <img src="images/products/brazil.svg" alt="Бразилия Сантос" width="400" height="300">
-          <p class="product-category">Смесь</p>
-          <h3>Бразилия Сантос</h3>
-          <p>Мягкий вкус, какао и жареный орех.</p>
-          <p class="product-price">620 ₽ / 250 г</p>
-        </article>
-        </div>
-      </section>
+            <article class="product-card">
+              <img class="product-card__image" src="images/products/brazil.svg" alt="Бразилия Сантос" width="400" height="300" loading="lazy">
+              <div class="product-card__body">
+                <p class="product-card__category">Смесь</p>
+                <h3 class="product-card__title">Бразилия Сантос</h3>
+                <p class="product-card__description">Мягкий вкус, какао и жареный орех.</p>
+                <p class="product-card__price">520 ₽ <span class="product-card__unit">/ 250 г</span></p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
     </div>
 
-    <p>
+    <p class="page-note">
       Не нашли нужный сорт? <a href="contacts.html#feedback">Напишите нам</a>
       или вернитесь к <a href="index.html#popular">популярным сортам</a>.
     </p>
   </main>
 
-  <footer id="contacts" class="footer">
-    <div class="container">
-      <p>Москва, ул. Обжарочная, 7 · +7 (495) 000-00-00 · hello@zerno.example</p>
-      <p>
-        <a href="index.html#advantages">Преимущества</a> ·
-        <a href="contacts.html">Контакты</a> ·
-        <a href="#top">Наверх</a>
-      </p>
-      <p>&copy; 2026 Зерно. Учебный проект</p>
+  <footer class="site-footer" id="contacts">
+    <div class="container site-footer__inner">
+      <section class="site-footer__column">
+        <h2 class="site-footer__title">Зерно</h2>
+        <p class="site-footer__text">Обжариваем specialty-кофе небольшими партиями с 2019 года.</p>
+      </section>
+      <nav class="site-footer__column" aria-label="Каталог">
+        <h2 class="site-footer__title">Каталог</h2>
+        <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="catalog.html">Все товары</a></li>
+        </ul>
+      </nav>
+      <nav class="site-footer__column" aria-label="Покупателям">
+        <h2 class="site-footer__title">Покупателям</h2>
+        <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="index.html#advantages">Преимущества</a></li>
+            <li><a class="site-footer__link" href="index.html#popular">Популярные сорта</a></li>
+        </ul>
+      </nav>
+      <section class="site-footer__column">
+        <h2 class="site-footer__title">Контакты</h2>
+        <address class="site-footer__address">
+          Москва, ул. Обжарочная, 7<br>
+          <a class="site-footer__link" href="tel:+74950000000">+7 (495) 000-00-00</a><br>
+          <a class="site-footer__link" href="mailto:hello@zerno.example">hello@zerno.example</a>
+        </address>
+      </section>
+    </div>
+    <div class="container site-footer__bottom">
+      <p>&copy; 2026 Зерно. Учебный проект по дисциплине «Фронтенд и бэкенд разработка».</p>
+      <a class="site-footer__link" href="#top">Наверх ↑</a>
     </div>
   </footer>
 </body>
