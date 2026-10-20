@@ -15,7 +15,7 @@
 
 ## Ссылка на опубликованный проект
 
-GitHub Pages: https://k1kim0r.github.io/kr1-html-css-shop/
+GitHub Pages: https://kikimor0607.github.io/kr1-html-css-shop/
 
 ## Как посмотреть проект
 
@@ -23,7 +23,7 @@ GitHub Pages: https://k1kim0r.github.io/kr1-html-css-shop/
 2. Или локально: клонировать репозиторий и открыть `index.html` в браузере:
 
    ```bash
-   git clone https://github.com/k1kim0r/kr1-html-css-shop.git
+   git clone https://github.com/kikimor0607/kr1-html-css-shop.git
    cd kr1-html-css-shop
    open index.html
    ```
