@@ -28,38 +28,77 @@
 
     <h1>Каталог</h1>
 
-    <section id="mono">
-      <h2>Моносорта</h2>
-      <article class="product">
-        <h3>Эфиопия Иргачеффе</h3>
-        <p>Цветочный аромат, ноты бергамота и персика.</p>
-        <p>Цена: 890 руб. / 250 г</p>
-      </article>
-      <article class="product">
-        <h3>Колумбия Супремо</h3>
-        <p>Сбалансированный вкус с нотами карамели и ореха.</p>
-        <p>Цена: 760 руб. / 250 г</p>
-      </article>
-      <article class="product">
-        <h3>Кения АА</h3>
-        <p>Яркая кислотность, чёрная смородина и томат.</p>
-        <p>Цена: 940 руб. / 250 г</p>
-      </article>
-    </section>
+    <div class="catalog-layout">
+      <aside class="filters" aria-label="Фильтры каталога">
+        <h2>Фильтры</h2>
+        <form class="filters-form" action="#">
+          <fieldset>
+            <legend>Категория</legend>
+            <label><input type="checkbox" name="category" value="mono" checked> Моносорта</label>
+            <label><input type="checkbox" name="category" value="blend" checked> Смеси</label>
+          </fieldset>
+          <fieldset>
+            <legend>Обжарка</legend>
+            <label><input type="radio" name="roast" value="filter"> Под фильтр</label>
+            <label><input type="radio" name="roast" value="espresso"> Под эспрессо</label>
+            <label><input type="radio" name="roast" value="any" checked> Любая</label>
+          </fieldset>
+          <button class="button" type="button">Применить</button>
+        </form>
+      </aside>
 
-    <section id="blends">
-      <h2>Эспрессо-смеси</h2>
-      <article class="product">
-        <h3>Эспрессо-смесь «Утро»</h3>
-        <p>Плотное тело, шоколад и сухофрукты.</p>
-        <p>Цена: 690 руб. / 250 г</p>
-      </article>
-      <article class="product">
-        <h3>Бразилия Сантос</h3>
-        <p>Мягкий вкус, какао и жареный орех.</p>
-        <p>Цена: 620 руб. / 250 г</p>
-      </article>
-    </section>
+      <section id="products" class="catalog-products" aria-label="Товары">
+        <div class="products-grid">
+        <article class="product">
+          <img src="images/products/ethiopia.svg" alt="Эфиопия Иргачеффе" width="400" height="300">
+          <p class="product-category">Моносорт</p>
+          <h3>Эфиопия Иргачеффе</h3>
+          <p>Цветочный аромат, ноты бергамота и персика.</p>
+          <p class="product-price">890 ₽ / 250 г</p>
+        </article>
+
+        <article class="product">
+          <img src="images/products/colombia.svg" alt="Колумбия Супремо" width="400" height="300">
+          <p class="product-category">Моносорт</p>
+          <h3>Колумбия Супремо</h3>
+          <p>Сбалансированный вкус с нотами карамели и ореха.</p>
+          <p class="product-price">760 ₽ / 250 г</p>
+        </article>
+
+        <article class="product">
+          <img src="images/products/kenya.svg" alt="Кения АА" width="400" height="300">
+          <p class="product-category">Моносорт</p>
+          <h3>Кения АА</h3>
+          <p>Яркая кислотность, чёрная смородина и томат.</p>
+          <p class="product-price">940 ₽ / 250 г</p>
+        </article>
+
+        <article class="product">
+          <img src="images/products/guatemala.svg" alt="Гватемала Антигуа" width="400" height="300">
+          <p class="product-category">Моносорт</p>
+          <h3>Гватемала Антигуа</h3>
+          <p>Молочный шоколад, специи и апельсиновая цедра.</p>
+          <p class="product-price">820 ₽ / 250 г</p>
+        </article>
+
+        <article class="product">
+          <img src="images/products/utro.svg" alt="Эспрессо-смесь «Утро»" width="400" height="300">
+          <p class="product-category">Смесь</p>
+          <h3>Эспрессо-смесь «Утро»</h3>
+          <p>Плотное тело, шоколад и сухофрукты.</p>
+          <p class="product-price">690 ₽ / 250 г</p>
+        </article>
+
+        <article class="product">
+          <img src="images/products/brazil.svg" alt="Бразилия Сантос" width="400" height="300">
+          <p class="product-category">Смесь</p>
+          <h3>Бразилия Сантос</h3>
+          <p>Мягкий вкус, какао и жареный орех.</p>
+          <p class="product-price">620 ₽ / 250 г</p>
+        </article>
+        </div>
+      </section>
+    </div>
 
     <p>
       Не нашли нужный сорт? <a href="contacts.html#feedback">Напишите нам</a>

@@ -367,3 +367,106 @@ main h1 {
 .footer a:hover {
   color: var(--color-surface);
 }
+
+/* ===============================
+   10. Flexbox и Grid
+   =============================== */
+.menu {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.menu li {
+  display: block;
+  margin-left: 0;
+}
+
+.page-anchors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.page-anchors a {
+  margin-right: 0;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-lg);
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+
+.product img {
+  margin-bottom: 12px;
+  border-radius: var(--radius-sm);
+}
+
+.product .button {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.product-category {
+  color: var(--color-text-muted);
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.product-price {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.catalog-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: var(--space-lg);
+  align-items: start;
+  margin-bottom: var(--space-lg);
+}
+
+.filters {
+  padding: var(--space-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.filters h2 {
+  margin-bottom: 12px;
+}
+
+.filters fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin: 0 0 var(--space-md);
+  padding: 0;
+  border: none;
+}
+
+.filters legend {
+  margin-bottom: var(--space-xs);
+  font-weight: bold;
+}
+
+.footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
